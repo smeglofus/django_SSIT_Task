@@ -68,7 +68,6 @@ def vote(request, question_id):
         vote_time = timezone.now().strftime("%H:%M")
 
         # Check if a TimeChoice object with the same time and choice already exists
-        # Check if a TimeChoice object with the same time and choice already exists
         time_choice = TimeChoice.objects.filter(
             time=vote_time,
             choice=selected_choice,
