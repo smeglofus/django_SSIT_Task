@@ -24,5 +24,36 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
+
     def __str__(self):
         return self.choice_text
+
+
+
+class TimeChoice(models.Model):
+    id = models.AutoField(primary_key=True)
+    time = models.CharField(max_length=15,primary_key=False)
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
+    vote_count = models.PositiveIntegerField(default=0)
+
+
+
+
+
+
+
+#todo udělat model databáze inspirovanou tímto
+#      """SELECT
+#     t.time,
+#     SUM(CASE WHEN t.choice_id = 1 THEN t.vote_count ELSE 0 END) AS "Choice 1",
+#     SUM(CASE WHEN t.choice_id = 2 THEN t.vote_count ELSE 0 END) AS "Choice 2",
+#     SUM(CASE WHEN t.choice_id = 3 THEN t.vote_count ELSE 0 END) AS "Choice 3"
+# FROM polls_timechoice t
+# LEFT JOIN (
+#     SELECT id, choice_text FROM polls_choice
+# ) c ON t.choice_id = c.id
+# GROUP BY t.time"""
+
+
+
+

@@ -5,3 +5,8 @@ li a {
 body {
     background: white url("images/background.gif") no-repeat right bottom;
 }
+
+body {
+    margin-top: 4em;
+}
+
